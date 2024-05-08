@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.theme.min.css">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+
+    <style>
+        input {
+            color: #ffa574;
+            border: none;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        div.slider-range {
+            border-color: #eaeaea;
+        }
+    </style>
+</head>
+<body>
+    
+    <p>
+        <label for="amount">캔버스 호수:</label>
+        <input type="text" id="amount">
+    </p>
+    
+    <div id="slider-range"></div>
+
+    <script>
+        $( function() {
+            $( "#slider-range" ).slider({
+            range: true,
+            min: 0,
+            max: 60,
+            step: 5,
+            values: [ 75, 300 ],
+            slide: function( event, ui ) {
+                $( "#amount" ).val(ui.values[ 0 ] + "호 - " + ui.values[ 1 ] + "호" );
+            }
+            });
+            $( "#amount" ).val(  + $( "#slider-range" ).slider( "values", 0 ) +
+            "호 - " + $( "#slider-range" ).slider( "values", 1 ) + "호");
+        } );
+    </script>
+    
+</body>
+</html>

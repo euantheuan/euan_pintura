@@ -1,0 +1,43 @@
+@charset "utf-8";
+@import url(reset.css);
+@import url(font.css);
+@import url(all.min.css);
+
+main ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+}
+main ul li {
+    width: calc(100%/2 - 50px);
+    border: 1px solid #ddd;
+    padding: 30px 20px;
+    border-radius: 15px;
+    text-align: center;
+    height: 130px;
+    position: relative;
+    margin-bottom: 25px;
+}
+main ul figure {
+    width: 100px;
+    margin: 0 auto;
+}
+main ul li span {
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
+    left: 50%; transform: translateX(-50%);
+}
+main ul li.on {
+    border: 2px solid #ffa574;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+main ul li:last-child {
+    margin-bottom: 100px;
+}
+main ul li:first-child figure,
+main ul li:nth-child(2) figure,
+main ul li:last-child figure {
+    width: 80px;
+}

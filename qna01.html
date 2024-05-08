@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설문조사 | 질문01</title>
+    <link rel="stylesheet" href="css/header_footer.css">
+    <link rel="stylesheet" href="css/qna01.css">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+                <a href="index.html" class="btn_back"><i class="fa-solid fa-chevron-left"></i><span class="blind">뒤로가기</span></a>
+            <nav>
+                <span class="here"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </nav>
+            <div class="text_area">
+                <p class="text">그림이 생긴다면 그림을 통해 연출하고 싶은 공간의 분위기는?</p>
+            </div>
+            <h1>어느 공간에 그림을 배치하고 싶나요?</h1>
+        </header>
+        <main>
+            
+                <ul class="space">
+                    <li class="clear">
+                        <figure><img src="img/ico/qna01-1.png" alt=""></figure>
+                        <ul>
+                            <li class="title">복도</li>
+                            <li>우리집을 갤러리로!</li>
+                        </ul>
+                    </li>
+                    <li class="clear">
+                        <figure><img src="img/ico/qna01-2.png" alt=""></figure>
+                        <ul>
+                            <li class="title">안방</li>
+                            <li>잠들기전 힐링!</li>
+                        </ul>
+                    </li>
+                    <li class="clear">
+                        <figure><img src="img/ico/qna01-3.png" alt=""></figure>
+                        <ul>
+                            <li class="title">사무실</li>
+                            <li>쾌적한 업무공간으로!</li>
+                        </ul>
+                    </li>
+                    <li class="clear">
+                        <figure><img src="img/ico/qna01-4.png" alt=""></figure>
+                        <ul>
+                            <li class="title">놀이방</li>
+                            <li>우리 아이 창의력을 위해!</li>
+                        </ul>
+                    </li>
+                    <li class="clear">
+                        <figure><img src="img/ico/qna01-5.png" alt=""></figure>
+                        <ul>
+                            <li class="title">거실</li>
+                            <li>인테리어 필수 아이템!</li>
+                        </ul>
+                    </li>
+                    <li class="clear">
+                        <figure><img src="img/ico/qna01-6.png" alt=""></figure>
+                        <ul>
+                            <li class="title">그 외 공간</li>
+                            <li>보기에 없어요!</li>
+                        </ul>
+                    </li>
+                </ul> <!-- .space -->
+        </main>
+        <footer>
+            <a href="qna02.html">바로 여기에요!</a>
+        </footer>
+    </div>
+
+    <script>
+        $(function(){
+            $('.space > li').on('click', function() {
+                $(this).siblings().removeClass('on');
+                $(this).toggleClass('on');
+                $('footer').addClass('on')
+                if ($('.space').find('li.on').length == 0) {
+                    $('footer').removeClass('on')
+                }
+            });
+            
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+@charset "utf-8";
+@import url(reset.css);
+@import url(font.css);
+@import url(all.min.css);
+
+#wrap {
+    overflow: hidden;
+}
+
+div.desc_pic {
+    width: 65vw;
+    margin: 0 auto;
+}
+div.desc_pic .btn {
+    width: 100%; height: calc(65vw);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: no-repeat center/80%;
+    position: relative;
+}
+div.desc_pic .btn1 {
+    background-image: url(../img/bubble.png);
+    transform: translateX(-10vw);
+    margin-top: -20px;
+    
+}
+div.desc_pic .btn1.on {
+    background-image: url(../img/bubble_pink.png);
+}
+div.desc_pic .btn2 {
+    background-image: url(../img/reversebubble.png);
+    margin-top: -70px;
+    margin-bottom: 80px;
+    transform: translateX(10vw);
+}
+div.desc_pic .btn2.on {
+    background-image: url(../img/reversebubble_pink.png);
+}
+div.desc_pic p {
+    font-size: 18px;
+    text-align: center;
+}
+div.desc_pic p span {
+    display: block;
+    font-weight: 600;
+    color: black;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+div.desc_pic .btn1 p {
+    position: absolute;
+    top: 36%;
+}
+div.desc_pic .btn2 p {
+    position: absolute;
+    top: 43%;
+}

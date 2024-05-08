@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .offer-con {
+  display: flex;
+  justify-content: center;
+}
+
+.state1 {
+  grid-column: 1;
+}
+
+.state2 {
+  grid-column: 2;
+}
+
+.state3 {
+  grid-column: 3;
+}
+
+.state4 {
+  grid-column: 4;
+}
+
+.state5 {
+  grid-column: 5;
+}
+
+.state6 {
+  grid-column: 6;
+}
+
+.switch-bar {
+  display: grid;
+  grid-template-columns: 15% 15% 15% 15% 15% 15% ;
+  column-gap: auto;
+  height: 45px;
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 80px;
+  margin: 16px;
+  background: #286A75;
+  box-shadow: inset 4px 4px 8px 4px rgba(0, 0, 0, .25);
+  justify-content: space-between;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.switch-slider {
+  grid-row: 1;
+  height: 45px;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 138px;
+  background: linear-gradient(180deg, rgba(0, 159, 227, 1) 0%, rgba(40, 57, 117, 1) 100%);
+  cursor: pointer;
+  box-shadow: 8px 8px 12px 4px rgba(0, 0, 0, .4);
+}
+
+.dot {
+  background-color: #ededed;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  grid-row: 1;
+}
+
+.dot:nth-child(1) {
+  justify-self: start;
+  margin-left: 24px;
+  grid-column: 1;
+}
+
+.dot:nth-child(2) {
+  justify-self: center;
+  grid-column: 2;
+}
+
+.dot:nth-child(3) {
+  justify-self: end;
+  margin-right: 24px;
+  grid-column: 3;
+}
+.dot:nth-child(4) {
+  justify-self: end;
+  margin-right: 24px;
+  grid-column: 4;
+}
+.dot:nth-child(5) {
+  justify-self: end;
+  margin-right: 24px;
+  grid-column: 5;
+}
+.dot:nth-child(6) {
+  justify-self: end;
+  margin-right: 24px;
+  grid-column: 6;
+}
+    </style>
+</head>
+<body>
+    
+    <div id="offer" class="offer-con">
+        <div class="switch-bar">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="switch-slider"></div>
+        </div>
+      </div>
+
+      <script>
+        var switchslider;
+
+document.addEventListener('DOMContentLoaded', e => {
+  switchslider = document.querySelector('#offer .switch-slider');
+
+  switchslider.state = {
+    down: false,
+    value: 1
+  };
+
+  switchslider.classList.add('state1');
+
+  switchslider.addEventListener('mousedown', e => {
+    // set the initial state
+    e.target.state.clientx = e.clientX;
+    e.target.state.down = true;
+  });
+});
+
+document.addEventListener('mousemove', e => {
+  if (switchslider.state.down) {
+    // calculate the distance between initial mouse and now
+    let delta = e.clientX - switchslider.state.clientx;
+    let move = 0;
+    // test position
+    if (delta > 50 && switchslider.state.value < 3) {
+      move = 1;
+    } else if (delta < -50 && switchslider.state.value > 1) {
+      move = -1;
+    }
+    // the slide moves to a new state
+    if (move != 0) {
+      switchslider.state.value += move;
+      switchslider.className = `switch-slider state${switchslider.state.value}`;
+      delta = 0;
+      switchslider.state.down = false;
+    }
+    // move the slider
+    switchslider.style.marginLeft = `${delta}px`;
+  }
+});
+
+document.addEventListener('mouseup', e => {
+  // reset the slider state on mouse up
+  if (switchslider.state && switchslider.state.down) {
+    switchslider.state.down = false;
+    switchslider.style.marginLeft = '0';
+  }
+});
+      </script>
+</body>
+</html>
